@@ -11,6 +11,9 @@ let recipeDetailsContent = document.querySelector(".recipeDetailsContent")
 
 
 const fetchRecipes = async (query) => {
+try {
+        
+    
     recipeContainer.innerHTML="<h2>Fetching recipe...</h2>";
     let data  = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
 
@@ -21,14 +24,9 @@ const fetchRecipes = async (query) => {
 
     console.log(filteredMeals);
 
-
-    
-    
     recipeContainer.innerHTML=""
     filteredMeals.forEach((recipe) => {
         
-        
-
         const recipeDiv = document.createElement('div')
         recipeDiv.classList.add('recipeCard');
 
@@ -68,8 +66,6 @@ const fetchRecipes = async (query) => {
         recipeDiv.appendChild(category);
         recipeDiv.appendChild(viewRecipe);
 
-
-
          viewRecipe.addEventListener('click',function(){
         
         
@@ -79,12 +75,12 @@ const fetchRecipes = async (query) => {
 
        recipeContainer.appendChild(recipeDiv);
 
-
-
-
-      
-
     });
+
+} catch (error) {
+    recipeContainer.innerHTML="<h2>Recipe not found!</h2>";
+        
+    }
     
     
 }
