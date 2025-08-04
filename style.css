@@ -52,7 +52,10 @@ body, html{
     .btn{
         margin-top: 20px;
     }
+    
 }
+
+
 
 .searchbar input, button{
     font-size: 1.2rem;
@@ -151,14 +154,20 @@ body, html{
     background-color: rgb(32, 29, 29);
     -webkit-transform: translate(-50%, -50%);
     border-radius: 10px;
-    width: 45%;
+    width: 300px;
     height: 60%;
     font-size: 25px;
     overflow: scroll;
     scrollbar-width: none; 
+    border: 2px solid white;
 
 
     
+}
+@media (min-width: 1000px) {
+  .recipeDetails {
+    width: 500px; /* or you can use percentage */
+  }
 }
 .close{
     position: fixed;
